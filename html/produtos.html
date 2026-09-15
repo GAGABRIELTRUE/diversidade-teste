@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos — Diversidade</title>
+    <link rel="stylesheet" href="../dist/output.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Espaço reservado no topo do body para a navbar fixa não cobrir o conteúdo */
+        body {
+            padding-top: 84px;
+        }
+    </style>
+</head>
+
+<body class="bg-stone-100 min-h-screen flex flex-col items-center p-4 md:p-6 lg:p-8 relative overflow-x-hidden">
+
+    <!-- 🧭 NAVBAR FIXA -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-40 bg-black/95 backdrop-blur border-b border-stone-800">
+        <div class="max-w-350 mx-auto px-4 md:px-8 h-17 flex items-center justify-between">
+            <a href="./main.html" class="font-black text-xl md:text-2xl tracking-tighter uppercase text-white shrink-0">
+                Diversidade.
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-xs font-mono uppercase tracking-widest text-stone-300">
+                <a href="./main.html" class="hover:text-[#FF8B6B] transition">Início</a>
+                <a href="./produtos.html" class="text-[#FF8B6B]">Produtos</a>
+                <a href="./about.html" class="hover:text-[#FF8B6B] transition">Sobre nós</a>
+            </nav>
+
+            <a href="./produtos.html#catalogo"
+               class="hidden sm:inline-block bg-[#FF5A3C] text-white text-center font-bold uppercase tracking-wider text-[11px] px-5 py-3 rounded-xl hover:opacity-90 transition-all duration-300">
+                Ver coleção
+            </a>
+
+            <!-- Botão mobile -->
+            <button id="menu-toggle" class="md:hidden text-white p-2" aria-label="Abrir menu" aria-expanded="false">
+                <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Menu mobile expansível -->
+        <div id="mobile-menu" class="md:hidden hidden flex-col border-t border-stone-800 bg-black px-4 py-4 gap-1">
+            <a href="./main.html" class="block py-3 text-sm font-mono uppercase tracking-widest text-stone-300 hover:text-[#FF8B6B] transition">Início</a>
+            <a href="./produtos.html" class="block py-3 text-sm font-mono uppercase tracking-widest text-[#FF8B6B]">Produtos</a>
+            <a href="./about.html" class="block py-3 text-sm font-mono uppercase tracking-widest text-stone-300 hover:text-[#FF8B6B] transition">Sobre nós</a>
+        </div>
+    </header>
+
+    <!-- 🏪 CONTEÚDO PRINCIPAL -->
+    <main class="bg-white text-black w-full max-w-[95%] xl:max-w-[85%] rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.06)] overflow-hidden border border-stone-200">
+
+        <!-- CABEÇALHO DA PÁGINA -->
+        <section class="bg-black text-white p-8 md:p-14">
+            <p class="text-xs font-mono uppercase tracking-widest text-[#FF8B6B] mb-3">// A Coleção</p>
+            <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tight leading-none max-w-2xl">
+                Cada peça carrega uma história pra contar.
+            </h1>
+            <p class="text-stone-400 text-sm md:text-base mt-4 max-w-xl leading-relaxed">
+                Camisetas, bonés e acessórios pensados por quem entende que representatividade não é tendência, é ponto de partida.
+            </p>
+        </section>
+
+        <!-- GRID DE PRODUTOS: os cards são gerados por js/produtos.js a partir do array "produtos". -->
+        <!-- Para adicionar um produto novo, edite a lista "produtos" em js/produtos.js. -->
+        <section id="catalogo" class="p-6 md:p-12 scroll-mt-24">
+            <div id="produtos-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Os cards de produto são inseridos aqui automaticamente pelo script -->
+            </div>
+        </section>
+    </main>
+
+    <!-- 🖤 RODAPÉ -->
+    <footer class="w-full max-w-[95%] xl:max-w-[85%] mt-6 md:mt-8 mb-2 bg-black text-white rounded-3xl p-8 md:p-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+            <div>
+                <span class="font-black text-2xl tracking-tighter uppercase">Diversidade.</span>
+                <p class="text-stone-400 text-sm mt-4 leading-relaxed max-w-xs">
+                    Moda e curadoria feitas por quem entende que representatividade não é tendência, é ponto de partida.
+                </p>
+            </div>
+
+            <div>
+                <p class="text-xs font-mono uppercase tracking-widest text-[#14B8A6] mb-4">Navegação</p>
+                <ul class="space-y-2 text-sm text-stone-300">
+                    <li><a href="./main.html" class="hover:text-[#FF8B6B] transition">Início</a></li>
+                    <li><a href="./produtos.html" class="hover:text-[#FF8B6B] transition">Produtos</a></li>
+                    <li><a href="./about.html" class="hover:text-[#FF8B6B] transition">Sobre nós</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="text-xs font-mono uppercase tracking-widest text-[#FFC145] mb-4">Fale com a gente</p>
+                <ul class="space-y-2 text-sm text-stone-300">
+                    <li><a href="mailto:truethornmind@gmail.com" class="hover:text-[#FF8B6B] transition">truethornmind@gmail.com</a></li>
+                    <li><a href="#" class="hover:text-[#FF8B6B] transition">Instagram</a></li>
+                    <li><a href="#" class="hover:text-[#FF8B6B] transition">Termos de uso</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="h-0.5 w-full rounded-full bg-linear-to-r from-[#FF5A3C] via-[#8B5CF6] to-[#14B8A6] mt-10 opacity-70"></div>
+
+        <div class="mt-6 flex flex-col sm:flex-row justify-between gap-3 text-[10px] font-mono text-stone-500 uppercase tracking-widest">
+            <span>© 2026 Diversidade. Todos os corpos, todas as mentes.</span>
+            <span>Edição Permanente // 2026</span>
+        </div>
+    </footer>
+
+    <!-- ⚙️ SCRIPTS DA PÁGINA DE PRODUTOS -->
+    <script src="../js/produtos.js"></script>
+
+</body>
+</html>

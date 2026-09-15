@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de Vendas sobre Diversidade</title>
+    <link rel="stylesheet" href="../dist/output.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* Transição para a tela preta deslizar para a DIREITA */
+        .intro-hidden {
+            transform: translateX(100%);
+            transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        /* Efeito para o texto sumir suavemente antes da tela deslizar */
+        .text-fade {
+            transition: opacity 0.25s ease;
+        }
+        .text-hidden {
+            opacity: 0;
+        }
+        /* Espaço reservado no topo do body para a navbar fixa não cobrir o conteúdo */
+        body {
+            padding-top: 84px;
+        }
+    </style>
+</head>
+
+<body class="bg-stone-100 min-h-screen flex flex-col items-center p-4 md:p-6 lg:p-8 relative overflow-x-hidden">
+
+    <!-- 🧭 NAVBAR FIXA -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-40 bg-black/95 backdrop-blur border-b border-stone-800">
+        <div class="max-w-350 mx-auto px-4 md:px-8 h-17 flex items-center justify-between">
+            <a href="./main.html" class="font-black text-xl md:text-2xl tracking-tighter uppercase text-white shrink-0">
+                Diversidade.
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-xs font-mono uppercase tracking-widest text-stone-300">
+                <a href="./main.html" class="text-[#FF8B6B]">Início</a>
+                <a href="./produtos.html" class="hover:text-[#FF8B6B] transition">Produtos</a>
+                <a href="./about.html" class="hover:text-[#FF8B6B] transition">Sobre nós</a>
+            </nav>
+
+            <a href="./produtos.html#catalogo"
+               class="hidden sm:inline-block bg-[#FF5A3C] text-white text-center font-bold uppercase tracking-wider text-[11px] px-5 py-3 rounded-xl hover:opacity-90 transition-all duration-300">
+                Ver coleção
+            </a>
+
+            <!-- Botão mobile -->
+            <button id="menu-toggle" class="md:hidden text-white p-2" aria-label="Abrir menu" aria-expanded="false">
+                <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Menu mobile expansível -->
+        <div id="mobile-menu" class="md:hidden hidden flex-col border-t border-stone-800 bg-black px-4 py-4 gap-1">
+            <a href="./main.html" class="block py-3 text-sm font-mono uppercase tracking-widest text-[#FF8B6B]">Início</a>
+            <a href="./produtos.html" class="block py-3 text-sm font-mono uppercase tracking-widest text-stone-300 hover:text-[#FF8B6B] transition">Produtos</a>
+            <a href="./about.html" class="block py-3 text-sm font-mono uppercase tracking-widest text-stone-300 hover:text-[#FF8B6B] transition">Sobre nós</a>
+        </div>
+    </header>
+
+    <!-- 🎬 ANIMAÇÃO DE INTRODUÇÃO LATERAL (SPLASH SCREEN) -->
+    <div id="intro-screen" class="fixed inset-0 bg-black z-50 flex flex-col items-center justify-center text-white px-6">
+        <div id="intro-text" class="text-center text-fade">
+            <h2 class="text-xs font-mono uppercase tracking-[0.3em] text-stone-400 mb-4 animate-pulse">
+                Iniciando Experiência
+            </h2>
+            <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tighter max-w-xl leading-none">
+                Todos os corpos.<br>
+                Todas as identidades.
+            </h1>
+            <div class="mt-8 h-0.75 w-16 bg-stone-800 mx-auto rounded-full overflow-hidden">
+                <div class="h-full w-full bg-[#8B5CF6] animate-[ping_1s_infinite]"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🏪 CONTEÚDO PRINCIPAL DO SITE -->
+    <main class="bg-white text-black w-full max-w-[95%] xl:max-w-[85%] min-h-[85vh] lg:min-h-[90vh] rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.06)] flex flex-col md:flex-row overflow-hidden border border-stone-200">
+        
+        <!-- COLUNA DA ESQUERDA: Manifesto (Fundo Preto) -->
+        <section class="w-full md:w-[40%] bg-black text-white p-8 md:p-12 flex flex-col justify-between border-b md:border-b-0 md:border-r border-stone-800">
+            <div class="flex items-center justify-between md:justify-start">
+                <span class="font-black text-2xl tracking-tighter uppercase">Diversidade.</span>
+                <span class="text-[10px] font-mono uppercase text-stone-400 tracking-widest md:hidden">Edição 2026</span>
+            </div>
+
+            <div class="my-12 md:my-0">
+                <p class="text-xs font-mono uppercase tracking-widest text-[#FF8B6B] mb-3">// O Manifesto</p>
+                <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tight leading-snug">
+                    Não somos um padrão. <br>
+                    Somos a mistura de todas as cores.
+                </h2>
+                <p class="text-stone-400 text-sm mt-4 leading-relaxed">
+                    Nascemos para dar espaço ao que é plural. Moda, expression e orgulho em formato de curadoria exclusiva.
+                </p>
+            </div>
+
+            <div class="hidden md:block text-[10px] font-mono text-stone-500 uppercase tracking-widest">
+                Edição Permanente // 2026
+            </div>
+        </section>
+
+        <!-- COLUNA DA DIREITA: Conteúdo e Ações (Fundo Branco) -->
+        <section class="w-full md:w-[60%] p-8 md:p-12 flex flex-col justify-between bg-white">
+            <div class="hidden md:flex justify-end text-xs font-mono text-[#14B8A6] uppercase tracking-wider">
+                <span>Orgulho & Inclusão Real</span>
+            </div>
+
+            <div class="max-w-xl my-auto py-8 md:py-0">
+                <span class="inline-block bg-[#FFC145] text-black text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-md mb-6">
+                    Boas-vindas à nossa loja
+                </span>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight uppercase leading-none mb-6">
+                    Vista a sua <br>
+                    <span class="bg-[#8B5CF6] text-white px-3 py-1 inline-block transform -rotate-1 text-3xl md:text-4xl lg:text-5xl my-1">
+                        identidade
+                    </span>
+                </h1>
+
+                <p class="text-stone-600 text-base md:text-lg font-medium leading-relaxed mb-10">
+                    Explore nossa primeira coleção de produtos focados em representatividade e impacto social. Cada peça conta uma história.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="./produtos.html" class="bg-[#FF5A3C] text-white text-center font-bold uppercase tracking-wider text-xs px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg shadow-[#FF5A3C]/20 transform hover:-translate-y-0.5">
+                        Explorar Produtos
+                    </a>
+                    <a href="./about.html" class="bg-white text-[#8B5CF6] border-2 border-[#8B5CF6] text-center font-bold uppercase tracking-wider text-xs px-8 py-4 rounded-xl hover:bg-[#8B5CF6] hover:text-white transition-all duration-300 transform hover:-translate-y-0.5">
+                        Conhecer a Causa
+                    </a>
+                </div>
+            </div>
+
+            <footer class="flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-mono text-stone-400 uppercase tracking-wider border-t border-stone-100 pt-6">
+                <div>© Todos os corpos, todas as mentes.</div>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-[#8B5CF6] transition">Instagram</a>
+                    <a href="#" class="hover:text-[#8B5CF6] transition">Termos</a>
+                </div>
+            </footer>
+        </section>
+
+    </main>
+
+    <!-- 🧭 CHAMADA PARA PRODUTOS E SOBRE NÓS -->
+    <section class="w-full max-w-[95%] xl:max-w-[85%] mt-6 md:mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <a href="./produtos.html" class="group bg-black text-white rounded-3xl p-8 md:p-10 border-2 border-[#FF5A3C]/30 hover:border-[#FF5A3C] flex flex-col justify-between min-h-55 transition-colors duration-300">
+            <div>
+                <p class="text-xs font-mono uppercase tracking-widest text-[#FF8B6B] mb-3">// A Coleção</p>
+                <h3 class="text-2xl md:text-3xl font-black uppercase tracking-tight leading-snug mb-4">
+                    Camisetas, bonés e acessórios que carregam uma história pra contar.
+                </h3>
+            </div>
+            <span class="inline-block w-fit text-xs font-bold uppercase tracking-wider border-b-2 border-transparent group-hover:border-[#FF5A3C] pb-1 transition-colors">
+                Ver todos os produtos
+            </span>
+        </a>
+
+        <a href="./about.html" class="group bg-white text-black rounded-3xl p-8 md:p-10 border-2 border-[#8B5CF6] flex flex-col justify-between min-h-55 hover:bg-[#8B5CF6] hover:text-white transition-colors duration-300">
+            <div>
+                <p class="text-xs font-mono uppercase tracking-widest text-[#8B5CF6] group-hover:text-white/80 mb-3 transition-colors">// Quem Somos</p>
+                <h3 class="text-2xl md:text-3xl font-black uppercase tracking-tight leading-snug mb-4">
+                    Um manifesto, uma comunidade e um motivo pra existir.
+                </h3>
+            </div>
+            <span class="inline-block w-fit text-xs font-bold uppercase tracking-wider border-b-2 border-transparent group-hover:border-white pb-1 transition-colors">
+                Conhecer a nossa causa
+            </span>
+        </a>
+
+    </section>
+
+    <!-- 🖤 RODAPÉ -->
+    <footer class="w-full max-w-[95%] xl:max-w-[85%] mt-6 md:mt-8 mb-2 bg-black text-white rounded-3xl p-8 md:p-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+            <div>
+                <span class="font-black text-2xl tracking-tighter uppercase">Diversidade.</span>
+                <p class="text-stone-400 text-sm mt-4 leading-relaxed max-w-xs">
+                    Moda e curadoria feitas por quem entende que representatividade não é tendência, é ponto de partida.
+                </p>
+            </div>
+
+            <div>
+                <p class="text-xs font-mono uppercase tracking-widest text-[#14B8A6] mb-4">Navegação</p>
+                <ul class="space-y-2 text-sm text-stone-300">
+                    <li><a href="./main.html" class="hover:text-[#FF8B6B] transition">Início</a></li>
+                    <li><a href="./produtos.html" class="hover:text-[#FF8B6B] transition">Produtos</a></li>
+                    <li><a href="./about.html" class="hover:text-[#FF8B6B] transition">Sobre nós</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="text-xs font-mono uppercase tracking-widest text-[#FFC145] mb-4">Fale com a gente</p>
+                <ul class="space-y-2 text-sm text-stone-300">
+                    <li><a href="mailto:truethornmind@gmail.com" class="hover:text-[#FF8B6B] transition">truethornmind@gmail.com</a></li>
+                    <li><a href="#" class="hover:text-[#FF8B6B] transition">Instagram</a></li>
+                    <li><a href="#" class="hover:text-[#FF8B6B] transition">Termos de uso</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="h-0.5 w-full rounded-full bg-linear-to-r from-[#FF5A3C] via-[#8B5CF6] to-[#14B8A6] mt-10 opacity-70"></div>
+
+        <div class="mt-6 flex flex-col sm:flex-row justify-between gap-3 text-[10px] font-mono text-stone-500 uppercase tracking-widest">
+            <span>© 2026 Diversidade. Todos os corpos, todas as mentes.</span>
+            <span>Edição Permanente // 2026</span>
+        </div>
+    </footer>
+
+    <!-- ⚙️ SCRIPT DA ANIMAÇÃO LATERAL -->
+    <script src="../js/main.js"></script>
+
+</body>
+</html>
