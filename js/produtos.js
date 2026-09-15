@@ -54,9 +54,9 @@ function criarCardProduto(produto) {
 }
 
 // 🛍️ CONEXÃO COM O SERVIDOR (Substitui a lista estática antiga)
-// 🔴 MUDE ABAIXO PARA O ENDEREÇO IP DO SEU COMPUTADOR PARA RODAR NO CELULAR
-const IP_SERVIDOR = "localhost"; // Mude para algo como "192.168.x.x" se testar no celular
-const URL_API = `http://${IP_SERVIDOR}:4433/produtos`;
+// 🔴 Endereço do servidor rodando no Render (HTTPS, sem porta customizada)
+const URL_SERVIDOR = "https://diversidade-server.onrender.com";
+const URL_API = `${URL_SERVIDOR}/produtos`;
 
 async function carregarProdutosDoServidor() {
     const grid = document.getElementById('produtos-grid');
@@ -73,7 +73,7 @@ async function carregarProdutosDoServidor() {
             const card = criarCardProduto(produto);
             
             // 🔴 Apontamos o link diretamente para a rota do servidor correspondente ao ID
-            card.href = `http://${IP_SERVIDOR}:4433/produto?id=${id}`;
+            card.href = `${URL_SERVIDOR}/produto?id=${id}`;
             
             grid.appendChild(card);
         });
